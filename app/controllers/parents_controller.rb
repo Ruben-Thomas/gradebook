@@ -26,6 +26,6 @@ class ParentsController < ApplicationController
 
   private
     def parent_params
-      params.require(:parent).permit( :name, :email, :password)
+      params.require(:parent).permit( :name, :email, :password, :student_id)
     end
 end

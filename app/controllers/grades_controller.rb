@@ -26,6 +26,6 @@ class GradesController < ApplicationController
 
   private
     def grade_params
-      params.require(:grade).permit( :grade, :date)
+      params.require(:grade).permit( :grade, :date, :student_id)
     end
 end
