@@ -1,0 +1,20 @@
+<p>New Teacher</p>
+
+<%= form_for @teacher do |t|%>
+
+  <div class="field">
+    <%= t.label :name %><br>
+    <%= t.text_field :name %>
+  </div>
+  <div class="field">
+    <%= t.label :email %><br>
+    <%= t.text_field :email %>
+  </div>
+  <div class="field">
+    <%= t.label :password %><br>
+    <%= t.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= t.submit %>
+  </div>
+<% end %>

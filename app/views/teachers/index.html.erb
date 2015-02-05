@@ -1,0 +1,18 @@
+<h1>Teachers#index</h1>
+<p>Find me in app/views/teachers/index.html.erb</p>
+<% @teachers.each do |teacher| %>
+  <h1><%=teacher.name%></h1>
+    <% teacher.students.each do |student| %>
+      <ul>
+      <h3><%= student.name %></h3>
+      <h5>Parents</h5>
+      <% student.parents.each do |parent| %>
+        <li><%= parent.name %></li>
+      <% end %>
+      <h5>Grades</h5>
+      <% student.grades.each do |grade| %>
+        <li>Grade: <%= grade.grade %> Date of assignment: <%=grade.date%></li>
+      <% end %>
+    </ul>
+    <% end %>
+<% end %>

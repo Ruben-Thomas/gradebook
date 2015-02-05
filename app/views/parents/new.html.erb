@@ -1,0 +1,24 @@
+<p>New Parent</p>
+
+<%= form_for @parent do |p|%>
+
+  <div class="field">
+    <%= p.label :name %><br>
+    <%= p.text_field :name %>
+  </div>
+  <div class="field">
+    <%= p.label :email %><br>
+    <%= p.text_field :email %>
+  </div>
+  <div class="field">
+    <%= p.label :password %><br>
+    <%= p.password_field :password %>
+  </div>
+  <div class="field">
+    <%= p.label :student_id %><br>
+    <%= p.number_field :student_id %>
+  </div>
+  <div class="actions">
+    <%= p.submit %>
+  </div>
+<% end %>
