@@ -1,0 +1,17 @@
+<%= form_for @grade do |g|%>
+
+  <div class="field">
+    <%= g.label :grade %><br>
+    <%= g.text_field :grade %>
+  </div>
+  <div class="field">
+    <%= g.label :date %><br>
+    <%= g.text_field :date %>
+  </div>
+  <div class="field">
+    <%= g.collection_select :student_id, @current_user.students, :id, :name %>
+  </div>
+  <div class="actions">
+    <%= g.submit %>
+  </div>
+<% end %>
