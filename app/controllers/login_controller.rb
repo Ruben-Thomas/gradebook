@@ -7,7 +7,13 @@ class LoginController < ApplicationController
     user = find_teacher || find_student || find_parent
     if user && user.authenticate(params[:login][:password])
       make_session(user)
-      redirect_to teachers_path
+      if session[:user_type] == 1
+        redirect_to teachers_path
+      elsif session[:user_type] == 2
+        redirect_to students_path
+      elsif session[:user_type] == 3
+        redirect_to parents_path
+      end
     else
       flash[:error] = 'Invalid email/password combination'
       render 'new'
@@ -24,17 +30,7 @@ class LoginController < ApplicationController
 
     def make_session(user)
       session[:user_id] = user.id
+      session[:user_type] = user.user_type
     end
 
-    def find_teacher
-      Teacher.find_by(email: params[:login][:email].downcase)
-    end
-
-    def find_student
-      Student.find_by(email: params[:login][:email].downcase)
-    end
-
-    def find_parent
-      Parent.find_by(email: params[:login][:email].downcase)
-    end
 end

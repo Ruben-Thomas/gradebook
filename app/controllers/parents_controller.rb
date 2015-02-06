@@ -1,4 +1,7 @@
 class ParentsController < ApplicationController
+  before_action :authenticate_user
+  before_action :authenticate_parent
+
   def new
     @parent = Parent.new
   end
@@ -28,5 +31,16 @@ class ParentsController < ApplicationController
   private
     def parent_params
       params.require(:parent).permit( :name, :email, :password, :student_id)
+    end
+
+
+    def authenticate_parent
+      if session[:user_type] == 3
+        return true
+      else
+        flash[:error] = 'Parents Only'
+        redirect_to login_path
+        return false
+      end
     end
 end

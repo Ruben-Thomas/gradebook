@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :authenticate_user
+  before_action :authenticate_teacher
 
   def new
     @teacher = Teacher.new
@@ -31,5 +32,15 @@ class TeachersController < ApplicationController
   private
     def teacher_params
       params.require(:teacher).permit( :name, :email, :password)
+    end
+
+    def authenticate_teacher
+      if session[:user_type] == 1
+        return true
+      else
+        flash[:error] = 'Teachers Only'
+        redirect_to login_path
+        return false
+      end
     end
 end

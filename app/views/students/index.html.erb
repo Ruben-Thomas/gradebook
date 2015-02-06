@@ -1,2 +1,6 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<h1>Your Grades</h1>
+<p></p>
+
+<% Student.where("id @current_user.student_id").grades.each do |grade| %>
+  <p>Grade: <%= grade.grade %> Date of assignment: <%=grade.date%></p>
+<% end %>

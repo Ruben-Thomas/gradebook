@@ -1,6 +1,7 @@
 <h1>Teachers#index</h1>
 <p>Find me in app/views/teachers/index.html.erb</p>
 <%= @current_user.name %>
+<%= @current_user.user_type %>
 <% @teachers.each do |teacher| %>
   <h1><%=teacher.name%></h1>
     <%= link_to 'New Student', new_student_path %>

@@ -6,9 +6,15 @@ class ApplicationController < ActionController::Base
 
     protected
     def authenticate_user
-      if session[:user_id]
-        @current_user = Teacher.find(session[:user_id]) || Student.find(session[:user_id]) || Parent.find(session[:user_id])
+      if session[:user_type] == 1 && session[:user_id]
+        @current_user = Teacher.find(session[:user_id])
         return true
+      elsif session[:user_type] == 2 && session[:user_id]
+        @current_user = Student.find(session[:user_id])
+        return true
+      elsif session[:user_type] == 3 && session[:user_id]
+          @current_user = Parent.find(session[:user_id])
+          return true
       else
         flash[:error] = 'Please Log In'
         redirect_to login_path

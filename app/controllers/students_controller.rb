@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_user
+  before_action :authenticate_student
   def new
     @student = Student.new
   end
@@ -28,5 +30,15 @@ class StudentsController < ApplicationController
   private
     def student_params
       params.require(:student).permit( :name, :email, :password, :teacher_id)
+    end
+
+    def authenticate_student
+      if session[:user_type] == 2
+        return true
+      else
+        flash[:error] = 'Students Only'
+        redirect_to login_path
+        return false
+      end
     end
 end
