@@ -22,6 +22,7 @@ class LoginController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    session[:user_type] = nil
     @current_user = nil
     flash[:error] = 'Logged Out'
     render 'new'

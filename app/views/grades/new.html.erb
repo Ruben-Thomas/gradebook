@@ -11,7 +11,7 @@
     <%= g.text_field :date %>
   </div>
   <div class="field">
-    <%= g.collection_select :student_id, Student.all, :id, :name %>
+    <%= g.collection_select :student_id, @current_user.students, :id, :name %>
   </div>
   <div class="actions">
     <%= g.submit %>
