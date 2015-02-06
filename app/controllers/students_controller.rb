@@ -19,6 +19,11 @@ class StudentsController < ApplicationController
   end
 
   def update
+    if @current_user.update(student_params)
+      redirect_to students_path, notice: 'Password successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy

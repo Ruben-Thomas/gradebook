@@ -4,3 +4,7 @@
 <% @current_user.student.grades.each do |grade| %>
   <p>Grade: <%= grade.grade %> Date of assignment: <%=grade.date%></p>
 <% end %>
+
+<p>  <%= link_to 'Change Password', edit_parent_path(@current_user) %></p>
+
+<p>  <%= link_to 'logout', logout_path %></p>

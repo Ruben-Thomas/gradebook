@@ -20,6 +20,11 @@ class TeachersController < ApplicationController
   end
 
   def update
+    if @current_user.update(teacher_params)
+      redirect_to teachers_path, notice: 'Password successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy

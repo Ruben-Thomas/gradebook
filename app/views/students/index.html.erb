@@ -1,6 +1,8 @@
 <h1>Your Grades</h1>
 <p></p>
 
-<% Student.where("id @current_user.student_id").grades.each do |grade| %>
+<% @current_user.grades.each do |grade| %>
   <p>Grade: <%= grade.grade %> Date of assignment: <%=grade.date%></p>
 <% end %>
+
+<p>  <%= link_to 'logout', logout_path %></p>

@@ -1,0 +1,9 @@
+<%= form_for @current_user do |c|%>
+  <div class="field">
+    <%= c.label :password %><br>
+    <%= c.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= c.submit %>
+  </div>
+<% end %>

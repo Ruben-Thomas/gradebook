@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
         @current_user = Student.find(session[:user_id])
         return true
       elsif session[:user_type] == 3 && session[:user_id]
-          @current_user = Parent.find(session[:user_id])
-          return true
+        @current_user = Parent.find(session[:user_id])
+        return true
       else
         flash[:error] = 'Please Log In'
         redirect_to login_path

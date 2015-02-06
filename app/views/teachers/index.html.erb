@@ -1,29 +1,30 @@
 <h1>Teachers#index</h1>
 <p>Find me in app/views/teachers/index.html.erb</p>
-<%= @current_user.name %>
-<%= @current_user.user_type %>
-<% @teachers.each do |teacher| %>
-  <h1><%=teacher.name%></h1>
-    <%= link_to 'New Student', new_student_path %>
-    <% teacher.students.each do |student| %>
-      <ul>
-      <h3><%= student.name %></h3>
-      <%= link_to 'Edit', edit_student_path(student) %>
-      <%= link_to 'Remove Student', student, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <h5>Parents</h5>
-      <%= link_to 'New Parent', new_parent_path %>
-      <% student.parents.each do |parent| %>
-        <li><%= parent.name %>
-            <%= link_to 'Edit', edit_parent_path(parent) %>
-            <%= link_to 'Remove Parent', parent, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <% end %>
-      <h5>Grades</h5>
-      <%= link_to 'New Grade', new_grade_path %>
-      <% student.grades.each do |grade| %>
-        <li>Grade: <%= grade.grade %> Date of assignment: <%=grade.date%>
-        <%= link_to 'Edit', edit_grade_path(grade) %>
-        <%= link_to 'Remove Grade', grade, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <% end %>
-    </ul>
+<%= link_to 'New Teacher', new_teacher_path %>
+
+<h1><%=@current_user.name%></h1>
+  <%= link_to 'New Student', new_student_path %>
+  <% @current_user.students.each do |student| %>
+    <ul>
+    <h3><%= student.name %></h3>
+    <%= link_to 'Edit', edit_student_path(student) %>
+    <%= link_to 'Remove Student', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <h5>Parents</h5>
+    <%= link_to 'New Parent', new_parent_path %>
+    <% student.parents.each do |parent| %>
+      <li><%= parent.name %>
+          <%= link_to 'Edit', edit_parent_path(parent) %>
+          <%= link_to 'Remove Parent', parent, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <% end %>
-<% end %>
+    <h5>Grades</h5>
+    <%= link_to 'New Grade', new_grade_path %>
+    <% student.grades.each do |grade| %>
+      <li>Grade: <%= grade.grade %> Date of assignment: <%=grade.date%>
+      <%= link_to 'Edit', edit_grade_path(grade) %>
+      <%= link_to 'Remove Grade', grade, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<p>  <%= link_to 'Change Password', edit_teacher_path(@current_user) %></p>
+<p>  <%= link_to 'logout', logout_path %></p>

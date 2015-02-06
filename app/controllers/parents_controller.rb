@@ -20,7 +20,13 @@ class ParentsController < ApplicationController
   end
 
   def update
+    if @current_user.update(parent_params)
+      redirect_to parents_path, notice: 'Password successfully updated.'
+    else
+      render :edit
+    end
   end
+
 
   def destroy
   end
