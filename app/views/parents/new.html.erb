@@ -15,8 +15,7 @@
     <%= p.password_field :password %>
   </div>
   <div class="field">
-    <%= p.label :student_id %><br>
-    <%= p.number_field :student_id %>
+    <%= p.collection_select :student_id, Student.all, :id, :name %>
   </div>
   <div class="actions">
     <%= p.submit %>

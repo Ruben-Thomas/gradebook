@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
+    @student.user_type = 2
     if @student.save
       redirect_to students_path, notice: 'student was successfully created.'
     else

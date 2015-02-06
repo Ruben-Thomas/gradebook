@@ -5,6 +5,7 @@ class ParentsController < ApplicationController
 
   def create
     @parent = Parent.new(parent_params)
+    @parent.user_type = 3
     if @parent.save
       redirect_to parents_path, notice: 'parent was successfully created.'
     else

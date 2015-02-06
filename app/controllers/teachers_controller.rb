@@ -1,10 +1,13 @@
 class TeachersController < ApplicationController
+  before_action :authenticate_user
+
   def new
     @teacher = Teacher.new
   end
 
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.user_type = 1
     if @teacher.save
       redirect_to teachers_path, notice: 'Teacher was successfully created.'
     else
