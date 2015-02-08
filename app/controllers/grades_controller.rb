@@ -1,7 +1,7 @@
 class GradesController < ApplicationController
   before_action :authenticate_user
   before_action :authenticate_teacher
-  before_action :set_grade
+  before_action :set_grade, except:[:new,:create]
   def new
     @grade = Grade.new
   end
