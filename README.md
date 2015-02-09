@@ -1,28 +1,5 @@
-== README
+Read me
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple grading program, teachers have full access to create teachers, students, and parents. Teachers can also create and edit grades for their students. Students can see their grades and change their passwords, parents can also see their childs grades and change their password.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+https://gradingforthecurve.herokuapp.com/
